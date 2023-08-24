@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="entity.Dock">
+        <table name="dock" schema="HibernateBasic" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="Id"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="numEmptyDockPoint">
+                <column name="numEmptyDockPoint"/>
+            </basic>
+            <basic name="numAvailableBike">
+                <column name="numAvailableBike"/>
+            </basic>
+            <basic name="area">
+                <column name="area"/>
+            </basic>
+            <basic name="address">
+                <column name="address"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

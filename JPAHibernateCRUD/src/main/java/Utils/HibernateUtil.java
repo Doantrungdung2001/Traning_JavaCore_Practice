@@ -16,19 +16,21 @@ public class HibernateUtil {
 
     static {
         try {
-            if ( sessionFactory == null) {
-               standardServiceRegistry = new StandardServiceRegistryBuilder().configure("src/main/resources/hibernate.cfg.xml").build();
-//                standardServiceRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+//             Khởi tạo đới tượng standardServiceRegistry từ file config
+//               standardServiceRegistry = new StandardServiceRegistryBuilder().configure("src/main/resources/hibernate.cfg.xml").build();
+                standardServiceRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+
+                // Tạo nguồn siêu dữ liệu (metadata) từ ServiceRegistry
                 MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
                 Metadata metadata = metadataSources.getMetadataBuilder().build();
 
                 sessionFactory = metadata.getSessionFactoryBuilder().build();
-            }
-
         } catch (Exception e) {
+            System.err.println("Error initializing SessionFactory: " + e.getMessage());
             if (standardServiceRegistry != null) {
                 StandardServiceRegistryBuilder.destroy(standardServiceRegistry);
             }
+
         }
     }
 //    static {

@@ -1,12 +1,27 @@
 package entity;
 
 public class Dock {
+
+    public Dock(int id, String name, int numEmptyDockPoint, int numAvailableBike, int area, String address) {
+        this.id = id;
+        this.name = name;
+        this.numEmptyDockPoint = numEmptyDockPoint;
+        this.numAvailableBike = numAvailableBike;
+        this.area = area;
+        this.address = address;
+    }
+
     private int id;
     private String name;
     private int numEmptyDockPoint;
     private int numAvailableBike;
     private int area;
     private String address;
+
+    public Dock() {
+
+    }
+
 
     public int getId() {
         return id;

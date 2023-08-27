@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.Invoice" table="invoice" schema="ecobikerental">
+        <id name="id">
+            <column name="Id" sql-type="char(16)" length="16"/>
+        </id>
+        <property name="content">
+            <column name="content" sql-type="varchar(200)" length="200"/>
+        </property>
+        <property name="totalAmount">
+            <column name="totalAmount" sql-type="int"/>
+        </property>
+        <property name="rentBikeId">
+            <column name="rentBikeId" sql-type="char(16)" length="16"/>
+        </property>
+    </class>
+</hibernate-mapping>

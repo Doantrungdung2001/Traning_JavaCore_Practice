@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.Rentbike" table="rentbike" schema="ecobikerental">
+        <id name="id">
+            <column name="Id" sql-type="char(16)" length="16"/>
+        </id>
+        <property name="idBike">
+            <column name="Id_Bike" sql-type="char(16)" length="16"/>
+        </property>
+        <property name="deposit">
+            <column name="Deposit" sql-type="int"/>
+        </property>
+        <property name="totalUpToNow">
+            <column name="totalUpToNow" sql-type="int" not-null="true"/>
+        </property>
+        <property name="startAt">
+            <column name="startAt" sql-type="datetime"/>
+        </property>
+        <property name="endAt">
+            <column name="endAt" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="status">
+            <column name="Status" sql-type="int" not-null="true"/>
+        </property>
+        <property name="userId">
+            <column name="userId" sql-type="char(16)" length="16"/>
+        </property>
+        <many-to-one name="bikeByIdBike" class="entity.Bike">
+            <column name="Id_Bike"/>
+        </many-to-one>
+        <many-to-one name="userByUserId" class="entity.User">
+            <column name="userId"/>
+        </many-to-one>
+        <set name="invoicesById" inverse="true">
+            <key>
+                <column name="rentBikeId"/>
+            </key>
+            <one-to-many not-found="ignore" class="entity.Invoice"/>
+        </set>
+    </class>
+</hibernate-mapping>

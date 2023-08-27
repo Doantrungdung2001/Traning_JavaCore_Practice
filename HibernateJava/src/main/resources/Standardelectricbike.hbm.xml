@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.Standardelectricbike" table="standardelectricbike" schema="ecobikerental">
+        <id name="id">
+            <column name="Id" sql-type="char(16)" length="16"/>
+        </id>
+        <property name="bateryPercent">
+            <column name="bateryPercent" sql-type="int" not-null="true"/>
+        </property>
+        <one-to-one name="bikeById" class="entity.Bike"/>
+    </class>
+</hibernate-mapping>

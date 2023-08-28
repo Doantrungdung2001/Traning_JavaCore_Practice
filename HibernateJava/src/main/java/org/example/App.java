@@ -16,7 +16,8 @@ public class App
         DockDAO docktest = new DockDAO();
 //        docktest.saveDock(test);
 //        docktest.updateDock(test);
-//        docktest.removeDockById(3);
+//        docktest.removeDockById("dock1");
+        docktest.getDockById("dock1");
         docktest.getAllDocks();
     }
 }

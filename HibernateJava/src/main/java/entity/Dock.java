@@ -1,5 +1,7 @@
 package entity;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Collection;
 
 public class Dock {
@@ -12,7 +14,8 @@ public class Dock {
         this.address = address;
         this.bikesById = bikesById;
     }
-
+    @Id
+    @GeneratedValue
     private String id;
     private String name;
     private int numEmptyDockPoint;

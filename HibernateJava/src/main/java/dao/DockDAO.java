@@ -50,7 +50,7 @@ public class DockDAO {
         }
     }
     // Get Dock by id
-    public void getDockById(int id){
+    public void getDockById(String id){
         Transaction transaction = null;
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             // start a transaction
@@ -93,7 +93,7 @@ public class DockDAO {
         }
     }
 
-    public void removeDockById(int id){
+    public void removeDockById(String id){
         Transaction transaction = null;
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             // start a transaction

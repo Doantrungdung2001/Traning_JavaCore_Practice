@@ -1,9 +1,10 @@
 package entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
 
+@Entity
+@Table(name = "dock")
 public class Dock {
     public Dock(String id, String name, int numEmptyDockPoint, int numAvailableBike, int area, String address, Collection<Bike> bikesById) {
         this.id = id;
@@ -17,11 +18,17 @@ public class Dock {
     @Id
     @GeneratedValue
     private String id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "numEmptyDockPoint")
     private int numEmptyDockPoint;
+    @Column(name = "numAvailableBike")
     private int numAvailableBike;
+    @Column(name = "area")
     private int area;
+    @Column(name = "address")
     private String address;
+    @OneToMany
     private Collection<Bike> bikesById;
 
     public Dock() {

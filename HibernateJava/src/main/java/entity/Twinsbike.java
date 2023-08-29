@@ -1,8 +1,23 @@
 package entity;
 
-public class Twinsbike {
+import javax.persistence.*;
+
+@Entity
+@Table(name = "twinsbike")
+public class Twinsbike extends Bike{
+    public Twinsbike(String id, Integer seatNumber, Bike bikeById) {
+        this.id = id;
+        this.seatNumber = seatNumber;
+        this.bikeById = bikeById;
+    }
+
+    public Twinsbike () {
+
+    }
+    @Id
     private String id;
     private Integer seatNumber;
+    @OneToOne
     private Bike bikeById;
 
     public String getId() {
@@ -48,4 +63,5 @@ public class Twinsbike {
     public void setBikeById(Bike bikeById) {
         this.bikeById = bikeById;
     }
+
 }

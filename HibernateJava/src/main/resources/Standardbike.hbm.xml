@@ -5,11 +5,9 @@
 <hibernate-mapping>
 
     <class name="entity.Standardbike" table="standardbike" schema="ecobikerental">
-        <property name="id">
+        <id name="id" type="java.lang.String">
             <column name="Id" sql-type="char(16)" length="16"/>
-        </property>
-        <many-to-one name="bikeById" class="entity.Bike">
-            <column name="Id"/>
-        </many-to-one>
+        </id>
+        <one-to-one name="bikeById" class="entity.Bike"/>
     </class>
 </hibernate-mapping>

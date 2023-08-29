@@ -6,17 +6,19 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/ecobikerental</property>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-      <property name="connection.username">root</property>
-      <property name="connection.password">19102001</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">19102001</property>
+
+
       <mapping resource="Bike.hbm.xml"/>
       <mapping resource="Card.hbm.xml"/>
       <mapping resource="Dock.hbm.xml"/>
       <mapping resource="Invoice.hbm.xml"/>
-<!--      <mapping resource="Rentbike.hbm.xml"/>-->
-<!--      <mapping resource="Standardbike.hbm.xml"/>-->
-<!--      <mapping resource="Standardelectricbike.hbm.xml"/>-->
+      <mapping resource="Rentbike.hbm.xml"/>
+      <mapping resource="Standardbike.hbm.xml"/>
+      <mapping resource="Standardelectricbike.hbm.xml"/>
       <mapping resource="Transaction.hbm.xml"/>
-<!--      <mapping resource="Twinsbike.hbm.xml"/>-->
+      <mapping resource="Twinsbike.hbm.xml"/>
       <mapping resource="User.hbm.xml"/>
       <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->

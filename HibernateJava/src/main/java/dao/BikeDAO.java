@@ -1,24 +1,26 @@
 package dao;
-import org.hibernate.Transaction;
-import utils.HibernateUtils;
-import entity.Dock;
+
+import entity.Bike;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import utils.HibernateUtils;
 
 import java.util.List;
-public class DockDAO {
 
-    // Create dock
-    public void saveDock(Dock dock) {
+public class BikeDAO {
+
+    public void saveBike(Bike bike) {
         Transaction transaction = null;
         try (Session session = HibernateUtils.getSessionFactory().openSession()){
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
-            session.save(dock);
+            session.save(bike);
             // commit transaction
             transaction.commit();
+            System.out.println("Insert Success");
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -26,23 +28,20 @@ public class DockDAO {
             e.printStackTrace();
         }
     }
-
-
-    // Get all Dock
-    public void  getAllDocks() {
+    public void getAllBike() {
         //open session
         Session session = HibernateUtils.getSessionFactory().openSession() ;
         try {
             //create query
-//            final String hql = "SELECT d FROM Dock d";
+//            final String hql = "SELECT d FROM Bike d";
 //            Query query = session.createQuery(hql);
-//            // Get all docks
-//            List<Dock> docks = query.list();
-//            for(Dock item : docks) {
+//            // Get all bike
+//            List<Bike> bikes = query.list();
+//            for(Bike item : bikes) {
 //                System.out.println(item.toString());
 //            }
-            List<Dock> docks = session.createQuery("from Dock ", Dock.class).list();
-            docks.forEach(e -> System.out.println(e.toString()));
+            List<Bike> bikes = session.createQuery("from Bike ", Bike.class).list();
+            bikes.forEach(e -> System.out.println(e.toString()));
 
         } catch (HibernateException e) {
             System.err.println(e);
@@ -50,20 +49,21 @@ public class DockDAO {
             session.close();
         }
     }
-    // Get Dock by id
-    public void getDockById(String id){
+
+    //Get Bike by Id
+    public void getBikeById(String id){
         Transaction transaction = null;
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
 
-            final String hql = "SELECT d FROM Dock d WHERE d.id = :dockId";
+            final String hql = "SELECT d FROM Bike d WHERE d.id = :BikeId";
             Query query = session.createQuery(hql);
-            query.setParameter("dockId", id);
+            query.setParameter("BikeId", id);
 
             // Get all docks
-            List<Dock> docks = query.list();
-            for(Dock item : docks) {
+            List<Bike> bikes = query.list();
+            for(Bike item : bikes) {
                 System.out.println(item.toString());
             }
 
@@ -77,13 +77,14 @@ public class DockDAO {
         }
     }
 
-    public void updateDock(Dock dock){
+    // Update Bike
+    public void updateBike(Bike bike){
         Transaction transaction = null;
         try (Session session = HibernateUtils.getSessionFactory().openSession()){
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
-            session.saveOrUpdate(dock);
+            session.saveOrUpdate(bike);
             // commit transaction
             transaction.commit();
             System.out.println("Update Success");
@@ -96,20 +97,20 @@ public class DockDAO {
         }
     }
 
-    public void removeDockById(String id){
+    public void removeBikeyId(String id){
         Transaction transaction = null;
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
 
-            final String hql = "SELECT d FROM Dock d WHERE d.id = :dockId";
+            final String hql = "SELECT d FROM Bike d WHERE d.id = :BikeId";
             Query query = session.createQuery(hql);
-            query.setParameter("dockId", id);
+            query.setParameter("BikeId", id);
 
             // Remove Dock
-            List<Dock> docks = query.list();
-            for(Dock item : docks) {
-                System.out.println("Delete Success"+ docks.toString());
+            List<Bike> bikes = query.list();
+            for(Bike item : bikes) {
+                System.out.println("Delete Success"+ bikes.toString());
                 session.delete(item);
             }
 
@@ -122,5 +123,4 @@ public class DockDAO {
             e.printStackTrace();
         }
     }
-
 }

@@ -1,6 +1,14 @@
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "bike")
 public class Bike {
+
     public Bike(String id, String idDock, String licensePlate, String barcode, Integer status, Integer type, Integer value) {
         this.id = id;
         this.idDock = idDock;
@@ -11,12 +19,19 @@ public class Bike {
         this.value = value;
     }
 
+    @Id
     private String id;
+    @Column(name = "Id_Dock")
     private String idDock;
+    @Column(name = "licensePlate")
     private String licensePlate;
+    @Column(name = "barcode")
     private String barcode;
+    @Column(name = "status")
     private Integer status;
+    @Column(name = "type")
     private Integer type;
+    @Column(name = "value")
     private Integer value;
 
     public Bike() {

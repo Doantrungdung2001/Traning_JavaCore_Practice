@@ -29,13 +29,13 @@
         <property name="userId">
             <column name="userId" sql-type="char(16)" length="16"/>
         </property>
-        <many-to-one name="bikeByIdBike" class="entity.Bike">
+        <many-to-one name="bikeByIdBike" class="entity.Bike" insert="false" update="false">
             <column name="Id_Bike"/>
         </many-to-one>
-        <many-to-one name="userByUserId" class="entity.User">
+        <many-to-one name="userByUserId" class="entity.User" insert="false" update="false">
             <column name="userId"/>
         </many-to-one>
-        <set name="invoicesById" inverse="true">
+        <set name="invoicesById" inverse="true" >
             <key>
                 <column name="rentBikeId"/>
             </key>
